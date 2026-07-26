@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  homelab-hub:
+    build: .
+    container_name: homelab-hub
+    ports:
+      - "8000:8000"
+    volumes:
+      # A gazdagép config.json-ja csatolódik a konténerbe
+      - ./config.json:/app/config.json
+    restart: unless-stopped

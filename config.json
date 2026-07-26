@@ -1,0 +1,20 @@
+[
+  {
+    "ip": "http://192.168.1.100",
+    "port": "9000",
+    "name": "Portainer",
+    "description": "Docker konténerek és stackek kezelése"
+  },
+  {
+    "ip": "http://192.168.1.100",
+    "port": "81",
+    "name": "Nginx Proxy Manager",
+    "description": "Reverse proxy és SSL igazolványok"
+  },
+  {
+    "ip": "http://192.168.1.100",
+    "port": "8080",
+    "name": "Pi-hole",
+    "description": "Hálózati szintű hirdetésblokkolás"
+  }
+]
