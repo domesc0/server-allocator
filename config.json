@@ -1,20 +1,26 @@
 [
   {
-    "ip": "http://192.168.1.100",
-    "port": "9000",
+    "ip": "http://192.168.0.22",
+    "port": "9443",
     "name": "Portainer",
-    "description": "Docker konténerek és stackek kezelése"
+    "description": "Docker container management"
   },
   {
-    "ip": "http://192.168.1.100",
+    "ip": "http://192.168.0.22",
     "port": "81",
-    "name": "Nginx Proxy Manager",
-    "description": "Reverse proxy és SSL igazolványok"
+    "name": "NPM",
+    "description": "Ngix Proxy Manager"
   },
   {
-    "ip": "http://192.168.1.100",
+    "ip": "http://192.168.0.22",
     "port": "8080",
-    "name": "Pi-hole",
-    "description": "Hálózati szintű hirdetésblokkolás"
+    "name": "Osky",
+    "description": "OpenSky aircraft tracker"
+  },
+  {
+    "ip": "http://192.168.0.22",
+    "port": "8080",
+    "name": "OctoPrint",
+    "description": "Octoprint 3D printing software"
   }
 ]

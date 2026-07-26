@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeLab Hub</title>
+    <title>{{ hostname }} HUB</title>
     <style>
         :root {
             --bg-color: #0a192f;
@@ -39,6 +39,7 @@
             color: var(--text-primary);
             font-weight: 600;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         header p {
@@ -112,7 +113,7 @@
 <body>
 
     <header>
-        <h1>HomeLab Server Hub</h1>
+        <h1>{{ hostname }} HUB</h1>
         <p>● Live Services</p>
     </header>
 
@@ -128,7 +129,6 @@
                 const response = await fetch('/api/services');
                 const data = await response.json();
                 
-                // Csak akkor rajzoljuk újra a DOM-ot, ha érdemben változott az adat
                 const dataString = JSON.stringify(data);
                 if (dataString === currentHash) return;
                 currentHash = dataString;
@@ -140,16 +140,14 @@
                     const card = document.createElement('a');
                     card.className = 'card';
                     
-                    // URL összeállítása az IP és Port alapján
                     let url = service.ip;
                     if (service.port) {
-                        // Ha az ip végén van slash, levágjuk
                         if (url.endsWith('/')) url = url.slice(0, -1);
                         url = `${url}:${service.port}`;
                     }
                     
                     card.href = url;
-                    card.target = '_blank'; // Új lapon nyílik meg
+                    card.target = '_blank';
                     card.rel = 'noopener noreferrer';
 
                     card.innerHTML = `
@@ -168,10 +166,7 @@
             }
         }
 
-        // Első betöltés
         fetchServices();
-
-        // Frissítés 5 másodpercenként
         setInterval(fetchServices, 5000);
     </script>
 </body>

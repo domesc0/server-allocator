@@ -9,4 +9,4 @@ services:
     volumes:
       # A gazdagép config.json-ja csatolódik a konténerbe
       - ./config.json:/app/config.json
-    restart: unless-stopped
+    restart: unless-stoppedz

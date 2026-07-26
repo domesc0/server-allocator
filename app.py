@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 import json
 import os
+import socket
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -20,10 +21,15 @@ def load_config():
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    # Lekérjük a gép vagy konténer hostname-jét
+    hostname = socket.gethostname()
+    return templates.TemplateResponse(
+        request=request, 
+        name="index.html",
+        context={"hostname": hostname}
+    )
 
 @app.get("/api/services")
 async def get_services():
-    # Mindig újraolvassa a fájlt, így élőben módosítható
     data = load_config()
     return JSONResponse(content=data)
