@@ -3,10 +3,10 @@ version: '3.8'
 services:
   homelab-hub:
     build: .
-    container_name: homelab-hub
+    container_name: homeserver-hub
     hostname: homeserver
     ports:
-      - "8000:8000"
-  volumes:
-    - /opt/server-allocator/config.json:/app/config.json
-  restart: unless-stoppedz
+      - "8070:8000"
+    volumes:
+      - /opt/server-allocator/config.json:/app/config.json
+    restart: unless-stopped
