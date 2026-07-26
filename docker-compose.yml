@@ -4,6 +4,7 @@ services:
   homelab-hub:
     build: .
     container_name: homelab-hub
+    hostname: homeserver
     ports:
       - "8000:8000"
     volumes:
