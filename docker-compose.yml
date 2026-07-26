@@ -7,7 +7,6 @@ services:
     hostname: homeserver
     ports:
       - "8000:8000"
-    volumes:
-      # A gazdagép config.json-ja csatolódik a konténerbe
-      - ./config.json:/app/config.json
-    restart: unless-stoppedz
+  volumes:
+    - /opt/server-allocator/config.json:/app/config.json
+  restart: unless-stoppedz
